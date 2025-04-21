@@ -11,7 +11,7 @@ const Tasks = () => {
 
   const getMyTask = async () => {
     try {
-      const response = await axios.get('http://localhost:7080/tasks/getTask', {
+      const response = await axios.get('https://backend-eplc.onrender.com/tasks/getTask', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       console.log("My Task", response.data);
@@ -24,7 +24,7 @@ const Tasks = () => {
 
   const getMyAssignedTask = async () => {
     try {
-      const response = await axios.get('http://localhost:7080/tasks/myAssingTask', {
+      const response = await axios.get('https://backend-eplc.onrender.com/tasks/myAssingTask', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       console.log("My Assigned Task", response.data);
@@ -39,7 +39,7 @@ const Tasks = () => {
     e.preventDefault();
     console.log('form data=> ', edituser);
     try {
-      const result = await axios.patch(`http://localhost:7080/tasks/updateTask/${edituser._id}`, { ...edituser }, {
+      const result = await axios.patch(`https://backend-eplc.onrender.com/tasks/updateTask/${edituser._id}`, { ...edituser }, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       alert('Task updated successfully!');
@@ -54,7 +54,7 @@ const Tasks = () => {
   const Delete = async (_id) => {
     console.log("delete id", _id);
     try {
-      await axios.delete(`http://localhost:7080/tasks/deleteTask/${_id}`, {
+      await axios.delete(`https://backend-eplc.onrender.com/tasks/deleteTask/${_id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       alert('Task deleted successfully');
@@ -68,7 +68,7 @@ const Tasks = () => {
   const completedTask = async (_id) => {
     console.log("completed task ID", _id);
     try {
-      const response = await axios.patch(`http://localhost:7080/tasks/completeTask/${_id}`, {}, {
+      const response = await axios.patch(`https://backend-eplc.onrender.com/tasks/completeTask/${_id}`, {}, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       alert(response.data.message);

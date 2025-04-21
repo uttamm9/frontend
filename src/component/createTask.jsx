@@ -26,7 +26,7 @@ const [sheetLink, setSheetLink] = useState('');
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:7080/tasks/getuser', {
+      const response = await axios.get('https://backend-eplc.onrender.com/tasks/getuser', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -53,7 +53,7 @@ const [sheetLink, setSheetLink] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:7080/tasks/createTask', { ...task }, {
+      .post('https://backend-eplc.onrender.com/tasks/createTask', { ...task }, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -70,7 +70,7 @@ const [sheetLink, setSheetLink] = useState('');
 
   const handleGoogleSheetUpload = async () => {
     try {
-      const res = await axios.post('http://localhost:7080/tasks/uploadFromSheet', {
+      const res = await axios.post('https://backend-eplc.onrender.com/tasks/uploadFromSheet', {
         sheetUrl: sheetLink
       }, {
         headers: {

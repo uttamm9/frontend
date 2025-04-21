@@ -23,7 +23,7 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:7080/tasks/signup', {...formData})
+    axios.post('https://backend-eplc.onrender.com/tasks/signup', {...formData})
       .then((res) => {
         console.log('Data saved', res);
         alert(res.data.message);
