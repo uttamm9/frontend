@@ -10,7 +10,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:7080/tasks/login', { email, password });
+      const res = await axios.post('https://backend-eplc.onrender.com/tasks/login', { email, password });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('name', res.data.name);
       axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
